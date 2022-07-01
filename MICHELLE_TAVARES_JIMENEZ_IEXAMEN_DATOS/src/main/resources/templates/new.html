@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xlmns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Boobstrap Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilo1.css">
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar</title>
+</head>
+<header th:replace="index :: header"></header>
+<body>
+    <h1 class="text-center m-5">Agragar Datos</h1>
+    <div class="container">
+        <form th:action="@{/add}" th:object="${item}" method="post">
+            <div class="form-control">
+                <div class="form-control">
+                    <label for="nombreArtista">Nombre de Artista</label>
+                    <input type="text" name="nombreArtista" id="nombreArtista" />
+                </div>
+                <div class="form-control">
+                    <label for="costoEntrada">Costo de Entrada</label>
+                    <input type="text" name="costoEntrada" id="costoEntrada" />
+                </div>
+                <div class="form-control">
+                    <label for="fechaConcierto">Fecha de Concierto</label>
+                    <input type="text" name="fechaConcierto" id="fechaConcierto" />
+                </div>
+                <div class="form-control">
+                    <label for="lugarConcierto">Lugar de Concierto</label>
+                    <input type="text" name="lugarConcierto" id="lugarConcierto" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-success">Agregar</button>
+        </form>
+    </div>
+</body>
+<footer th:replace="index :: footer"></footer>
+
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html hxmlns=xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Examen 01 </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilo1.css">
+</head>
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-sm navbar-dark h-50" style="background-color: #030303;">
+        <a class="navbar-brand" href=""><img src=" https://clientes.eticket.co.cr/images/logoinicio_cr.png" style="width: 300px; height: 100px;" ></a>
+        </div>
+    </nav>
+</header>
+<body>
+    <h1 class="text-center m-5"> Datos de Conciertos </h1>
+    <div class="text-center m-5 ">
+        <a href th:href="@{/new}" class="btn btn-primary btn-success">Agregar</a>
+    </div>
+    <table class="table  table-bordered text-center">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de Artista</th>
+                <th>Costo de Entrada</th>
+                <th>Fecha de Concierto</th>
+                <th>Lugar de Concierto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${dato}">
+                <td th:text="${item.idConcierto}"></td>
+                <td th:text="${item.nombreArtista}"></td>
+                <td th:text="${item.costoEntrada}"></td>
+                <td th:text="${item.lugar}"></td>
+                <td th:text="${item.fechaConcierto}"></td>
+                <td>
+                    <a th:href="@{/edit/} + ${item.idConcierto}" class="btn btn-primary">Editar</a>
+                    <a th:href="@{/delete/} + ${item.idConcierto}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+<footer th:fragment="footer">
+    <div class=" footer">
+        <p>&copy; 2022 - Examen de Michelle Tavares Jimenez - Universidad Fidélitas</p>
+    </div>
+</footer>
+
+</html>
